@@ -11,7 +11,7 @@ function sendData(){
             result.value = `Brand: ${data.brand} `+'\n'+ `Model: ${data.model}` 
             
         }).catch((error)=>{
-            result.value = error.message;
+            result.value = `Error sending request to server. Please fill up the fields correctly and try again.`;
         })
     }
     if(ejsData=='post'){
