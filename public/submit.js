@@ -31,7 +31,7 @@ function selectedRadio(){
     
     if(selected=='params'){
         document.getElementById('codeBox').value = `const express = require("express");`+'\n'+`const app  = express();`+'\n'+`app.listen(Port,()=>{`+'\n'+`    console.log('Server has been started at port ____')`+'\n'+`})`+'\n'+`app.get('/:brand/:watt',(req,res)=>{`+'\n'+`    if(req.params.brand=='longi'){`+'\n'+`    //Code to solve logical operations`+'\n'+`    }`+'\n'+`    res.send({"brand":value1,"model":value2});`+'\n'+`})`;
-        document.getElementById('test').innerHTML = '<label for="param1">https://lbunodejsendpoint.azurewebsites.net/</label> <input type="text" id="param1" size="3"> <label for="param2">&#160/&#160</label> <input type="number" id="param2" style="width: 3.5em">';
+        document.getElementById('test').innerHTML = '<label for="param1">https://lbunodejsendpoint.azurewebsites.net/&#160</label> <input type="text" id="param1" size="3"> <label for="param2">&#160/&#160</label> <input type="number" id="param2" style="width: 3.5em">';
         document.getElementById('note').value = `Enter the value in the respective fields to send GET request for the above API code.`+'\n'+`*For the first box use brand name: Longi/Trina/JASolar`+'\n'+`*For the second box use watt rating: 400/500/600`
     }
     if(selected=='query'){
