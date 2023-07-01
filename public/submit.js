@@ -1,9 +1,17 @@
 function sendData(){
     const ejsData = document.getElementById('ejsData').innerText; //getting the ejs passed data from html
     if(ejsData=='get'){
-        fetch(`https://lbunodejsendpoint.azurewebsites.net/${document.getElementById('param1').value}/${document.getElementById('param2').value}`).then(res=>res.json()).then((data)=>{
+        fetch(`https://lbunodejsendpoint.azurewebsites.net/${document.getElementById('param1').value}/${document.getElementById('param2').value}`)
+        .then(res => {
+            if (res.ok) return res.json();
+            return res.json().then(res => {throw new Error(res.error)})
+          })
+        .then((data)=>{
             const result = document.getElementById('result');
             result.value = `Brand: ${data.brand} `+'\n'+ `Model: ${data.model}` 
+            
+        }).catch((error)=>{
+            result.value = error.message;
         })
     }
     if(ejsData=='post'){
