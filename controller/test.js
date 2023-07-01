@@ -5,7 +5,7 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 
 
 router.get('/',(req,res)=>{
-    res.redirect('/get')
+    res.render("main");
 })
 
 router.get('/get',(req,res)=>{
