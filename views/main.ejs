@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn REST API</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        a:link{
+            color: #000000;
+        }
+        a:visited{
+            color: #000000;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+
+            display: grid;
+            grid-template-columns: repeat(4,1fr );
+            grid-template-rows: repeat(10,1fr );
+            gap: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .header {
+            background-color: #339933;
+            font-size: 20px;
+            grid-column-start: 1;
+            grid-column-end: span 4;
+            border: 2px solid #000000;
+            padding-top: 10px;
+            text-align: center;
+        }.details {
+            background-color: #e1e1e1;
+            grid-column-start: 1;
+            grid-column-end: span 4;
+            grid-row-start: 2;
+            grid-row-end: span 2;
+            resize: none;
+            border: 2px solid #000000;
+            font-weight: bold;
+        }
+        .get {
+            background-color: #339933;
+            grid-column-start: 2;
+            grid-column-end: 2;
+            grid-row-start: 5;
+            grid-row-end: span 2;
+            border: 3px solid #000000;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .post {
+            background-color: #339933;
+            grid-column-start: 3;
+            grid-column-end: 3;
+            grid-row-start: 5;
+            grid-row-end: span 2;
+            border: 3px solid #000000;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .put {
+            background-color: #339933;
+            grid-column-start: 2;
+            grid-column-end: 2;
+            grid-row-start: 7;
+            grid-row-end: span 2;
+            border: 3px solid #000000;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .delete {
+            background-color: #339933;
+            grid-column-start: 3;
+            grid-column-end: 3;
+            grid-row-start: 7;
+            grid-row-end: span 2;
+            border: 3px solid #000000;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">REST API by Node.js & Express.js</div>
+        <div class="details">Details</div>
+        <a href="/get" class="get">GET</a>
+        <a href="/post" class="post">POST</a>
+        <a href="#" class="put">PUT</a>
+        <a href="#" class="delete">DELETE</a>
+    </div>
+</body>
+</html>
