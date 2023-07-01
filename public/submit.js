@@ -22,16 +22,16 @@ function sendData(){
         'Content-Type': 'application/json'
         },
         body: JSON.stringify({brand:document.getElementById('param1').value, watt:document.getElementById('param2').value})
-        }).then(res => res.json())
-        .then((res)=>{
+        }).then(res => {
+            if (res.ok) return res.json();
+            return res.json().then(res => {throw new Error(res.error)})
+        }).then((res)=>{
             const result = document.getElementById('result');
-            if(res.message=='NO'){
-                result.value = `Please provide the information correctly.` 
-            }else{
-                result.value = res.message+'\n'+`Brand: ${res.brand} `+'\n'+ `Model: ${res.watt}`
-            }
-             
-        });
+            result.value = res.message+'\n'+`Brand: ${res.brand} `+'\n'+ `Model: ${res.watt}`
+   
+        }).catch((error)=>{
+            result.value = `Error sending request to server. Please fill up the fields correctly and try again.`;
+        })
     }
 }
 function selectedRadio(){
