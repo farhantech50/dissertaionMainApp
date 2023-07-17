@@ -15,6 +15,51 @@ window.onload = ()=>{
         })
     }
 }
+
+//To press Enter button to send the request. **This is an extra function
+document.addEventListener("keypress", function(event) {
+    const selected = document.querySelector('input[name="selected"]:checked').value;
+    if(selected){
+        if (event.key === "Enter") {
+            event.preventDefault();
+            const ejsData = document.getElementById('ejsData').innerText; //getting the ejs passed data from html
+          if(ejsData=='get'){
+              fetch(`https://lbunodejsendpoint.azurewebsites.net/${document.getElementById('param1').value}/${document.getElementById('param2').value}`)
+              .then(res => {
+                  if (res.ok) return res.json();
+                  return res.json().then(res => {throw new Error(res.error)})
+                })
+              .then((data)=>{
+                  const result = document.getElementById('result');
+                  result.value = `Brand: ${data.brand} `+'\n'+ `Model: ${data.model}` 
+                  
+              }).catch((error)=>{
+                  result.value = `Error sending request to server. Please fill up the fields correctly and try again.`;
+              })
+          }
+          if(ejsData=='post'){
+              fetch("https://lbunodejsendpoint.azurewebsites.net/", {
+              method: 'POST',
+              headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({brand:document.getElementById('param1').value, watt:document.getElementById('param2').value})
+              }).then(res => {
+                  if (res.ok) return res.json();
+                  return res.json().then(res => {throw new Error(res.error)})
+              }).then((res)=>{
+                  const result = document.getElementById('result');
+                  result.value = res.message+'\n'+`Inverter Type: ${res.brand} `+'\n'+ `Required Watt: ${res.watt}`
+         
+              }).catch((error)=>{
+                  result.value = `Error sending request to server. Please fill up the fields correctly and try again.`;
+              })
+          }
+          }
+    }
+  });
+
 function sendData(){
     const ejsData = document.getElementById('ejsData').innerText; //getting the ejs passed data from html
     if(ejsData=='get'){
