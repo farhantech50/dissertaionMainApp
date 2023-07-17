@@ -1,3 +1,20 @@
+window.onload = ()=>{
+    const ejsData = document.getElementById('ejsData').innerText;
+    if(ejsData=='get'){
+        fetch('get.txt')
+        .then(response => response.text())
+        .then((data) => {
+            document.getElementById('tutorial').innerHTML = data;
+        })
+    }
+    if(ejsData=='post'){
+        fetch('post.txt')
+        .then(response => response.text())
+        .then((data) => {
+            document.getElementById('tutorial').innerHTML = data;
+        })
+    }
+}
 function sendData(){
     const ejsData = document.getElementById('ejsData').innerText; //getting the ejs passed data from html
     if(ejsData=='get'){
@@ -27,7 +44,7 @@ function sendData(){
             return res.json().then(res => {throw new Error(res.error)})
         }).then((res)=>{
             const result = document.getElementById('result');
-            result.value = res.message+'\n'+`Brand: ${res.brand} `+'\n'+ `Model: ${res.watt}`
+            result.value = res.message+'\n'+`Inverter Type: ${res.brand} `+'\n'+ `Required Watt: ${res.watt}`
    
         }).catch((error)=>{
             result.value = `Error sending request to server. Please fill up the fields correctly and try again.`;
@@ -50,7 +67,7 @@ function selectedRadio(){
     if(selected=='body'){
         document.getElementById('codeBox').value = `const express = require("express");`+'\n'+`const app  = express();`+'\n'+`app.listen(Port,()=>{`+'\n'+`    console.log('Server has been started at port ____')`+'\n'+`})`+'\n'+`app.post('/',(req,res)=>{`+'\n'+`    if(req.body.brand!='' && req.body.watt!=''){`+'\n'+`    //Code to solve logical operations`+'\n'+`    }`+'\n'+`    res.send({"message":value1});`+'\n'+`})`;
         document.getElementById('test').innerHTML = '<label for="param1">Solar Inverter Type:&#160</label> <input type="text" id="param1" size="6"> <label for="param2">&#160&#160&#160Required Watt:&#160 </label> <input type="number" id="param2" style="width: 5.5em">'
-        document.getElementById('note').value = `HTML forms are generally used to send data to server using Post method.`+'\n'+`The values of the form are sent as body of the request to the server.`+'\n'+`Fill the respective forms to send data to server for the API written above.`+'\n'+`*Solar Inverter Types: Grid-tied, Off-grid, Hybrid.`+'\n'+`*Required Wattage: any numerical value.`
+        document.getElementById('note').value = `HTML forms are generally used to send data to server using Post method.`+'\n'+`The values of the form are sent as body of the request to the server.`+'\n'+`Fill the respective forms to send data to server for the API written above.`+'\n'+`*Solar Inverter Types: Grid-tied, Off-grid, Hybrid.`+'\n'+`*Required Wattage: any wattage between 1000 && 10000.`
     }
 }
 

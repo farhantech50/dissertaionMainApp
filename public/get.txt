@@ -1,0 +1,8 @@
+The most common HTTP method is GET, which returns a representational view of a resource's contents and data. GET should be used in read-only mode, which keeps the data safe and the resource idempotent. You should get the same results no matter how many times you use this method, unless it is modified by another client in the interim.
+
+For any given HTTP GET API, if the resource is found on the server, then it must return HTTP response code 200 (OK) – along with the response body, which is usually either XML or JSON content (due to their platform-independent nature).
+
+In case the resource is NOT found on the server then API must return HTTP response code 404 (NOT FOUND).
+Similarly, if it is determined that the GET request itself is not correctly formed then the server will return the HTTP response code 400 (BAD REQUEST).
+
+Resouces can be retrieved using two methods, using Parameter string or using Query string. 

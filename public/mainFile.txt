@@ -1,0 +1,17 @@
+What is REST API?
+A RESTful API is an architectural style for an application program interface (API) that uses HTTP requests to access and use data. 
+That data can be used to GET, PUT, POST and DELETE data types, which refers to the reading, updating, creating and deleting of operations concerning resources. 
+
+What is API?
+An API for a website is code that allows two software programs to communicate with each other. The API spells out the proper way for a developer to write a program requesting services from an operating system or other application.
+
+How does RESTful APIs work?
+To understand REST, we need to review some key terms first:
+A client is the person or program using the API. The client makes requests to the API in order to retrieve some information or change something within the application. 
+A resource is any piece of information that the API can provide the client. 
+A server is used by the application that receives client requests, and contains resources that the client wants. The server has an API to interact with clients without giving them direct access to content stored in its database.
+A RESTful API uses commands to obtain resources. A RESTful API uses existing HTTP methodologies defined by the RFC 2616 protocol, such as:
+GET - To retrieve a resource;
+PUT - To change the state of or update a resource, which can be an object, file or block;
+POST - To create that resource; and
+DELETE - To remove it.

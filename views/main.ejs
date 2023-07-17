@@ -40,16 +40,21 @@
             grid-column-start: 1;
             grid-column-end: span 4;
             grid-row-start: 2;
-            grid-row-end: span 2;
+            grid-row-end: span 5;
             resize: none;
             border: 2px solid #000000;
             font-weight: bold;
+            padding-left: 5px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            font-size: 15px;
+            text-align:center;
         }
         .get {
             background-color: #339933;
             grid-column-start: 2;
             grid-column-end: 2;
-            grid-row-start: 5;
+            grid-row-start: 7;
             grid-row-end: span 2;
             border: 3px solid #000000;
             font-weight: bold;
@@ -67,7 +72,7 @@
             background-color: #339933;
             grid-column-start: 3;
             grid-column-end: 3;
-            grid-row-start: 5;
+            grid-row-start: 7;
             grid-row-end: span 2;
             border: 3px solid #000000;
             font-weight: bold;
@@ -85,7 +90,7 @@
             background-color: #339933;
             grid-column-start: 2;
             grid-column-end: 2;
-            grid-row-start: 7;
+            grid-row-start: 9;
             grid-row-end: span 2;
             border: 3px solid #000000;
             font-weight: bold;
@@ -103,7 +108,7 @@
             background-color: #339933;
             grid-column-start: 3;
             grid-column-end: 3;
-            grid-row-start: 7;
+            grid-row-start: 9;
             grid-row-end: span 2;
             border: 3px solid #000000;
             font-weight: bold;
@@ -118,11 +123,18 @@
             font-weight: bold;
         }
     </style>
+    <script>
+        fetch('/mainFile.txt')
+        .then(response => response.text())
+        .then((data) => {
+            document.getElementById('txt').innerHTML = data;
+        })
+    </script>
 </head>
 <body>
     <div class="container">
         <div class="header"><p onclick="location.href='/'" style="cursor: pointer;margin: 0; padding-top: 10px;">REST API by Node.js & Express.js</p> </div>
-        <div class="details">Details</div>
+        <textarea class="details" id="txt"></textarea>
         <a href="/get" class="get">GET</a>
         <a href="/post" class="post">POST</a>
         <a href="#" class="put">PUT</a>
