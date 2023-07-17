@@ -150,7 +150,7 @@
                 <span><a id="callText" href="#">DELETE</a></span>
             </div>
         </div>
-        <textarea readonly class="tutorial" id="tutorial"></textarea>
+        <textarea readonly class="tutorial" id="tutorial" disabled></textarea>
         <div class="selection">
             <% if (data=='get') { %>
                 <input style="height: 20px; width: 20px; margin-left: 20px; accent-color: #339933;" type="radio" name="selected" onclick=selectedRadio() value="params">req.params
@@ -162,10 +162,10 @@
         </div>
         <textarea readonly class="codeBox" id="codeBox"></textarea>
         <div class="test" id="test"></div>
-        <textarea readonly class="note" id="note"></textarea>
+        <textarea readonly class="note" id="note" disabled></textarea>
         <button class="testBtn" form="testURLform" onclick=sendData()>TEST</button>
         <script src="submit.js"></script>
-        <textarea readonly class="result" id="result"></textarea>
+        <textarea readonly class="result" id="result" disabled></textarea>
         <p id="ejsData" style="display:none"><%= data %></p>  <!-- Passing the EJS data to the script.js file  -->
     </div>
         
